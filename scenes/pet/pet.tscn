@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://skrgjdqjg28l"]
+[gd_scene load_steps=93 format=3 uid="uid://skrgjdqjg28l"]
 
 [ext_resource type="Script" path="res://scenes/pet/pet.gd" id="1_dsach"]
 [ext_resource type="Texture2D" uid="uid://0rq8lffmujd4" path="res://art/Fox Sprite Sheet.png" id="1_ypenp"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://scenes/pet/turn_back.gd" id="10_s0jcu"]
 [ext_resource type="Shader" path="res://art/shader/outline.gdshader" id="11_il7a2"]
 [ext_resource type="Script" path="res://scenes/pet/turn_back_back.gd" id="11_vejtc"]
-[ext_resource type="Texture2D" uid="uid://riry5v3a473n" path="res://art/big_cat.png" id="13_bdamc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_helwq"]
 shader = ExtResource("11_il7a2")
@@ -887,8 +886,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0u84"]
 radius = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tssge"]
-
 [node name="Pet" type="CharacterBody2D"]
 position = Vector2(86, 93)
 script = ExtResource("1_dsach")
@@ -1008,12 +1005,6 @@ metadata/_edit_lock_ = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="BigCat" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_tssge")
-position = Vector2(-571, -105)
-scale = Vector2(0.747222, 0.749074)
-texture = ExtResource("13_bdamc")
 
 [connection signal="timeout" from="StateMachine/Timer" to="StateMachine" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/UnitTimer" to="StateMachine" method="_on_unit_timer_timeout"]

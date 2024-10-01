@@ -1,4 +1,3 @@
-
 extends CharacterBody2D
 
 @onready var mouse_collison: CollisionShape2D = %MouseCollison
@@ -8,14 +7,13 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var unit_timer: Timer = %UnitTimer
 
-
 var is_dragging:bool
 var mouse_enter:bool
 var is_pressing_mouse_position:Vector2
 
 
 func _ready() -> void:
-	pass
+	get_tree().root.transparent_bg=true
 
 
 func _physics_process(delta: float) -> void:
@@ -25,8 +23,6 @@ func _physics_process(delta: float) -> void:
 	if is_dragging:
 		get_window().position+=Vector2i(get_global_mouse_position()-is_pressing_mouse_position)
 	move_and_slide()
-
-
 
 
 func _input(event) -> void:

@@ -1,6 +1,4 @@
-extends Node
-
-class_name StateMachine
+class_name StateMachine extends Node
 
 @export var current_state: StateBase
 var last_number:int=0
@@ -31,19 +29,15 @@ func change_state(target_state_name: String) -> void:
 
 func _on_timer_timeout() -> void:
 	if Global.can_random_state:
-		print("上一个状态是:",get_child(last_number).name)
+		#print("上一个状态是:",get_child(last_number).name)
 		randomize()
-
 		var rand_child_number:int=randi_range(0,6)
 		while last_number==rand_child_number:
 			randomize()
 			rand_child_number=randi_range(0,6)
-		
+
 		var rand_child_name=get_child(rand_child_number).name
 		change_state(rand_child_name)
 		last_number=rand_child_number
 
-#
-#func _on_unit_timer_timeout() -> void:
-	#if Global.click_time>=3:
-		#change_state(get_child(7).name)
+
